@@ -1,10 +1,6 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y apt-transport-https curl && \ 
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
-    echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list 
+RUN sed -i -e '/daemon/'d -e '/start.*kuberctl/'d /var/lib/dpkg/info/kubelet.postinst
+RUN apt-get update && apt-get install -y kubectl kubernetes-cni kubeadm 
 
-    #apt-get install -y kubelet kubeadm kubectl kubernetes-cni
-RUN apt-get update &&  \
-    apt-get install -y kubelet 
 
