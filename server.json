@@ -1,0 +1,13 @@
+{
+    "server":"my_server_ip"，
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "port_password": {
+        "8381": "foobar1",
+        "8382": "foobar2",
+        "8383": "foobar3",
+        "8384": "foobar4"
+    },
+    "timeout":300,
+    "method":"rc4-md5"
+}
